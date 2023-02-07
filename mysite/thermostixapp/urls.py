@@ -2,4 +2,4 @@ from django.urls import path
 
 from . import views
 
-urlpatterns = [path("", views.Index)]
+urlpatterns = [path("", views.Index), path("pushdata", views.PushData)]

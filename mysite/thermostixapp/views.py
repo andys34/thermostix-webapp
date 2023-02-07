@@ -7,3 +7,7 @@ from . import Functions
 
 def Index(request):
     return render(request, "index.html")
+
+
+def PushData(request):
+    return HttpResponse("tea")
