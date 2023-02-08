@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<link rel="stylesheet" href="{% static 'mysite/adminstyle.css' %}">
+
+<head>
+    <title>Yeh</title>
+</head>
+
+<body>
+    <form class="form-group" action="/addUser" method="get">
+        <label>Add user</label>
+        <input id="username" type="text" name="username" value="" />
+        <button type="submit" class="btn">Add</button>
+    </form>
+    <br>
+    <form class="form-group" action="/addThermometer" method="get">
+        <label>Add thermometer</label>
+        <button type="submit" class="btn">Add</button>
+    </form>
+    <br>
+    <form class="form-group" action="/assignThermometersToUser" method="get">
+        <label>Users</label>
+        <div class="profiles-display">
+            {% if users %}
+            {% for user in users %}
+            {{user.username}}|
+            {% endfor %}
+            {% endif %}
+
+        </div>
+        <label>Type username below, then click thermometers to add.</label>
+        <input id="username" type="text" name="username" value="" />
+        <br>
+        <label>Thermometers</label>
+        <div class="profiles-display">
+            {% if thermometers %}
+            {% for thermometer in thermometers %}
+            <button type="submit" id="thermometerId" name="thermometerId" class="btn"
+                value="{{thermometer.id}}">{{thermometer.id}}</button>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </form>
+</body>
+
+</html>
