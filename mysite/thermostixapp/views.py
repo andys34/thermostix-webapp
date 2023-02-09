@@ -23,8 +23,7 @@ def Index(request):
         )
         dates = Log.objects.filter(thermometer=therm).values_list("time", flat=True)
         realDates = []
-        for date in dates:
-            realDates.appen
+
         thermometersData.append({"id": therm.id, "temps": temps, "dates": realDates})
     return render(
         request, "index.html", {"users": users, "thermometers": thermometersData}
