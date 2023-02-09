@@ -5,6 +5,7 @@ import json
 from thermostixapp.models import User, Thermometer, Log
 from datetime import datetime
 
+
 # Create your views here.
 
 
@@ -17,8 +18,14 @@ def Index(request):
         thermometers = []
     thermometersData = []
     for therm in thermometers:
-        temps = Log.objects.filter(thermometer=therm).values
-        thermometersData.append({"id": therm.id, "temps": temps, "dates": []})
+        temps = Log.objects.filter(thermometer=therm).values_list(
+            "temperature", flat=True
+        )
+        dates = Log.objects.filter(thermometer=therm).values_list("time", flat=True)
+        realDates = []
+        for date in dates:
+            realDates.appen
+        thermometersData.append({"id": therm.id, "temps": temps, "dates": realDates})
     return render(
         request, "index.html", {"users": users, "thermometers": thermometersData}
     )
