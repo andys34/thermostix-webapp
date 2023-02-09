@@ -3,19 +3,210 @@
 <!DOCTYPE html>
 <html>
 
-<link rel="stylesheet" href="{% static 'mysite/style.css' %}">
-
 <head>
-    <title>Yeh</title>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Logstix</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href="{% static 'mysite/style.css' %}">
 </head>
 
 <body>
-    <h1>Thermo gang</h1>
-    {% if users %}
-    {% for user in users %}
-    <button type="submit" id="username" name="username" value={{user.username}} class="btn">{{user.username}}</button>
-    {% endfor %}
-    {% endif %}
+    <nav class="tb">
+        <a href="" id="tb_stixmgmt">lg</a>
+        <a href="" id="tb_home">Logstix</a>
+        <a href="" id="tb_accmgmt">ac</a>
+    </nav>
+    <div class="top_groups_dwr_rt">
+        <div class="top_groups_dwr">
+            <div class="top_groups">
+
+
+                <div class="singlegroup">
+                    <div id="groupname">
+                        Zuivel
+                    </div>
+                    <div id="loggercount">
+                        4
+                    </div>
+                    <div class="historicaltemps">
+                        <div id="hrsetting">
+                            12h
+                        </div>
+                        <div id="maxtemp">
+                            5
+                        </div>
+                        <div id="mintemp">
+                            1
+                        </div>
+                    </div>
+                    <div class="currenttemps">
+                        <div id="hrsetting">
+                            now
+                        </div>
+                        <div id="maxtemp">
+                            5
+                        </div>
+                        <div id="mintemp">
+                            2
+                        </div>
+                    </div>
+                </div>
+                <div class="singlegroup">
+                    <div id="groupname">
+                        Zuivel
+                    </div>
+                    <div id="loggercount">
+                        4
+                    </div>
+                    <div class="historicaltemps">
+                        <div id="hrsetting">
+                            12h
+                        </div>
+                        <div id="maxtemp">
+                            5
+                        </div>
+                        <div id="mintemp">
+                            1
+                        </div>
+                    </div>
+                    <div class="currenttemps">
+                        <div id="hrsetting">
+                            now
+                        </div>
+                        <div id="maxtemp">
+                            5
+                        </div>
+                        <div id="mintemp">
+                            2
+                        </div>
+                    </div>
+                </div>
+                <div class="singlegroup">
+                    <div id="groupname">
+                        Zuivel
+                    </div>
+                    <div id="loggercount">
+                        4
+                    </div>
+                    <div class="historicaltemps">
+                        <div id="hrsetting">
+                            12h
+                        </div>
+                        <div id="maxtemp">
+                            5
+                        </div>
+                        <div id="mintemp">
+                            1
+                        </div>
+                    </div>
+                    <div class="currenttemps">
+                        <div id="hrsetting">
+                            now
+                        </div>
+                        <div id="maxtemp">
+                            5
+                        </div>
+                        <div id="mintemp">
+                            2
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div></div>
+    <div class="btm_groupview_grid">
+
+
+        <!-- BEGIN OF FIRST PART-->
+        {% if thermometers %}
+        {% for therm in thermometers %}
+        <button type="submit" id="username" name="username" class="btn">{{therm.temps}}</button>
+        {% endfor %}
+        {% endif %}
+        <div class="singlegroup">
+            <div id="groupname">
+                Zuivel
+            </div>
+
+            <div id="loggercount">
+                4 <!-- current temperature-->
+            </div>
+
+            <div class="temp_graph">
+                <canvas id="IDNAME1111"></canvas> <!--canvas in which the graph will be generated-->
+            </div>
+        </div>
+        <!-- END OF FIRST PART-->
+    </div>
+    </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<!-- BEGIN OF FIRST PART-->
+
+<script>
+    const ctx = document.getElementById("IDNAME1111");
+
+    new Chart(ctx, {
+        type: 'line',
+
+        data: {
+            labels: ['10:01', '10:02', '10:03', '10:04', '10:05', '10:06'],
+
+            datasets: [{
+
+                label: 'Degrees',
+
+                data: ['21.1', '21.2', '21.3', '21.4', '21.5', '21.6'],
+                borderWidth: 3
+
+            }]
+
+        },
+
+        options: {
+
+            plugins: {
+
+                legend: {
+
+                    display: false
+
+                }
+
+            },
+
+            borderColor: 'rgb(10, 7, 7)',
+
+            scales: {
+
+                x: {
+
+                    display: false
+
+                },
+
+                y: {
+
+                    display: false,
+
+                    beginAtZero: true
+
+                }
+
+            }
+
+        }
+
+    });
+
+
+</script>
+<!-- END OF SECOND PART-->
 
 </html>

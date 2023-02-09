@@ -10,15 +10,18 @@ from datetime import datetime
 
 def Index(request):
     users = User.objects.all().values()
-    thermometers = Thermometer.objects.all().values()
+    thermometers = Thermometer.objects.all()
     if users == None:
         users = []
     if thermometers == None:
         thermometers = []
     thermometersData = []
     for therm in thermometers:
-        thermometersData.append({"id": therm.id, "temps": [], "dates": []})
-    return render(request, "index.html", {"users": users, "thermometers": thermometers})
+        temps = Log.objects.filter(thermometer=therm).values
+        thermometersData.append({"id": therm.id, "temps": temps, "dates": []})
+    return render(
+        request, "index.html", {"users": users, "thermometers": thermometersData}
+    )
 
 
 def AdminView(request):
