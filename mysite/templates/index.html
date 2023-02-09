@@ -20,10 +20,12 @@
             Logstix // Jumbo Boschdijk
         </a>
         <a href="" id="tb_accmgmt">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="56" height="56" viewBox="0 0 56 56">
-            <image id="icons8-user-30" width="56" height="56" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA70lEQVR4nO3UQUrDQBSH8R8umqVdWrrWK+hJxEPYHsNuRPFAurR1ZfEAuinVlUUUXVYGJiCCdNJObCn54A8heeGbl8wbGjaUAn2M8BETrnvxWS10Mcb8j9zHmqwUC6Q/5Vk77ydIy5zmFN9VEA9zit8riENtNuYVs5aO37biH/fWtauLOKMpc9ySme4CeS0nV0krfsph3HAht/Fe9k4b/pUdHGGAGzzjK2aKa5zhMNauTAcXeKkwx2FR59hbRtjGFT6XOKfLhHcvsZsqPcDTCsLfecR+ivgho7TMOEU8rUE8SRGfYJZR+orjFHHDdvENyZP0ibBvoI8AAAAASUVORK5CYII="/>
-        </svg>
-    </a>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="56" height="56"
+                viewBox="0 0 56 56">
+                <image id="icons8-user-30" width="56" height="56"
+                    xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA70lEQVR4nO3UQUrDQBSH8R8umqVdWrrWK+hJxEPYHsNuRPFAurR1ZfEAuinVlUUUXVYGJiCCdNJObCn54A8heeGbl8wbGjaUAn2M8BETrnvxWS10Mcb8j9zHmqwUC6Q/5Vk77ydIy5zmFN9VEA9zit8riENtNuYVs5aO37biH/fWtauLOKMpc9ySme4CeS0nV0krfsph3HAht/Fe9k4b/pUdHGGAGzzjK2aKa5zhMNauTAcXeKkwx2FR59hbRtjGFT6XOKfLhHcvsZsqPcDTCsLfecR+ivgho7TMOEU8rUE8SRGfYJZR+orjFHHDdvENyZP0ibBvoI8AAAAASUVORK5CYII=" />
+            </svg>
+        </a>
     </nav>
     <div class="top_groups_dwr_rt">
         <div class="top_groups_dwr">
@@ -144,7 +146,8 @@
             </div>
 
             <div class="temp_graph">
-                <canvas id="{{therm.id}}"></canvas> <!--canvas in which the graph will be generated-->
+                <canvas id="{{therm.id}}"></canvas>
+                <!--canvas in which the graph will be generated-->
             </div>
         </div>{% endfor %}
         {% endif %}
@@ -152,19 +155,19 @@
     </div>
     </div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src=" https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
 
 <!-- BEGIN OF FIRST PART-->
 {% if thermometers %}
 {% for therm in thermometers %}
-<script data-thermometerid="{{therm.id}}"
-    data-temps="[{{therm.temps.1}}, {{therm.temps.2}}, {{therm.temps.3}}, {{therm.temps.4}}, {{therm.temps.5}}]"
-    data-dates="[{{therm.dates.1}},{{therm.dates.2}},{{therm.dates.3}},{{therm.dates.4}},{{therm.dates.5}}]">
-        const data = document.currentScript.dataset;
+<script data-thermometerid={{therm.id}} data-temps=[{{therm.temps.1}}, {{therm.temps.2}}, {{therm.temps.3}},
+    {{therm.temps.4}}, {{therm.temps.5}}]
+    data-dates=[{{therm.dates.1}},{{therm.dates.2}},{{therm.dates.3}},{{therm.dates.4}},{{therm.dates.5}}]>
+        var data = document.currentScript.dataset;
         console.log(data.thermometerid)
-        const ctx = document.getElementById(data.thermometerid);
+        var ctx = document.getElementById(data.thermometerid);
         console.log(data.temps)
         console.log(data.dates)
         new Chart(ctx, {

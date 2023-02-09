@@ -23,21 +23,15 @@ body {
     display: flex;
     height: 200px;
     display: flex;
-    justify-content: center;
+
 
 }
 
 .top_groups_dwr {
-
     margin: auto;
     max-height: 100%;
     overflow: auto;
-
-
-
 }
-
-.top_groups> ::-webkit-scrollbar {}
 
 .btm_groupview_grid {
     width: 100%;
@@ -52,7 +46,7 @@ body {
 }
 
 .singlegroup {
-    width: 400px;
+    min-width: 400px;
     height: 200px;
     align-items: center;
     text-align: center;
@@ -61,6 +55,18 @@ body {
     grid-auto-flow: column;
     background-color: white;
 
+}
+
+.temp_graph {
+    width: 400px;
+    height: 160px;
+    grid-row: 2/2;
+}
+
+#temp_graph {
+    height: 130px;
+    width: 400px;
+    margin: auto;
 }
 
 #groupname {
@@ -93,16 +99,4 @@ body {
 
 #mintemp {
     grid-column: 3;
-}
-
-a>img{
-    height: 50px;
-}
-nav{
-    display: flex;
-    justify-content: space-between;
-}
-#tb_home{
-    color: black;
-    font-weight: bold;
 }
