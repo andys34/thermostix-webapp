@@ -94,3 +94,15 @@ body {
 #mintemp {
     grid-column: 3;
 }
+
+a>img{
+    height: 50px;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+}
+#tb_home{
+    color: black;
+    font-weight: bold;
+}

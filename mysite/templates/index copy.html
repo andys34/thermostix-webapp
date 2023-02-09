@@ -1,0 +1,21 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<link rel="stylesheet" href="{% static 'mysite/style.css' %}">
+
+<head>
+    <title>Yeh</title>
+</head>
+
+<body>
+    <h1>Thermo gang</h1>
+    {% if users %}
+    {% for user in users %}
+    <button type="submit" id="username" name="username" value={{user.username}} class="btn">{{user.username}}</button>
+    {% endfor %}
+    {% endif %}
+</body>
+
+</html>
