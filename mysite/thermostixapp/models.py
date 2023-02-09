@@ -23,7 +23,7 @@ class Thermometer(models.Model):
 
 class Log(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    thermometer = models.ManyToManyField(Thermometer)
+    thermometer = models.ForeignKey(Thermometer, on_delete=models.CASCADE)
     temperature = models.FloatField()
     time = models.DateTimeField()
 

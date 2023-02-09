@@ -15,6 +15,9 @@ def Index(request):
         users = []
     if thermometers == None:
         thermometers = []
+    thermometersData = []
+    for therm in thermometers:
+        thermometersData.append({"id": therm.id, "temps": [], "dates": []})
     return render(request, "index.html", {"users": users, "thermometers": thermometers})
 
 
@@ -31,6 +34,7 @@ def AdminView(request):
 def PushData(request):
     log = Log(
         temperature=request.GET.get("temp"),
+        thermometer=Thermometer.objects.get(id=request.GET.get("id")),
         time=datetime.fromtimestamp(int(request.GET.get("time"))),
     )
 

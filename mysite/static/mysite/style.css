@@ -1,3 +1,96 @@
-h1 {
-    color: red
+body {
+    font-size: xxx-large;
+    font-family: URWGothicL;
+    height: 100vh;
+    background-color: #C2CEDF;
+}
+
+@font-face {
+    font-family: URWGothicL;
+    src: url(urw_gothic_l_book.ttf);
+}
+
+
+.top_groups_dwr_rt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-block-end: 2vh;
+
+}
+
+.top_groups {
+    display: flex;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.top_groups_dwr {
+
+    margin: auto;
+    max-height: 100%;
+    overflow: auto;
+
+
+
+}
+
+.top_groups> ::-webkit-scrollbar {}
+
+.btm_groupview_grid {
+    width: 100%;
+    display: inline-grid;
+    grid-template-columns: repeat(auto-fill, 400px);
+    justify-content: center;
+
+}
+
+.btm_groupview_grid>.singlegroup {
+    background-color: #6796D4;
+}
+
+.singlegroup {
+    width: 400px;
+    height: 200px;
+    align-items: center;
+    text-align: center;
+    display: grid;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+    background-color: white;
+
+}
+
+#groupname {
+    grid-column: 1/4;
+}
+
+#loggercount {
+    grid-column: 4 / 7;
+}
+
+.historicaltemps {
+    grid-row: 2;
+    display: inherit;
+    grid-column: 1/7;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+}
+
+.currenttemps {
+    grid-row: 3;
+    display: inherit;
+    grid-column: 1/7;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+}
+
+#maxtemp {
+    grid-column: 2;
+}
+
+#mintemp {
+    grid-column: 3;
 }
