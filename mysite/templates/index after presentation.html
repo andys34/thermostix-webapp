@@ -164,50 +164,28 @@
 {% for therm in thermometers %}
 
 <script 
-data-thermometerid={{therm.id}}
-data-temp1 = {{therm.temps.1}}
-data-temp2 = {{therm.temps.2}}
-data-temp3 = {{therm.temps.3}}
-data-temp4 = {{therm.temps.4}}
-data-temp5 = {{therm.temps.5}}
-
->
-
-// data-date1 = {{therm.dates.1}}
-// data-date2 = {{therm.dates.2}}
-// data-date3 = {{therm.dates.3}}
-// data-date4 = {{therm.dates.4}}
-// data-date5 = {{therm.dates.5}}
-
+data-thermometerid={{therm.id}} 
+data-temps=[{{therm.temps.1}}, {{therm.temps.2}}, {{therm.temps.3}}, {{therm.temps.4}}, {{therm.temps.5}}]
+data-dates=[{{therm.dates.1}},{{therm.dates.2}},{{therm.dates.3}},{{therm.dates.4}},{{therm.dates.5}}]>
         var data = document.currentScript.dataset;
         console.log("data.thermometerid");
         console.log(data.thermometerid);
-        var temperatures = [data.temp1, data.temp2, data.temp3, data.temp4, data.temp5];
-        // console.log("dates 1-5");
-        // console.log(data.date1);
-        // console.log(data.date2);
-        // console.log(data.date3);
-        // console.log(data.date4);
-        // console.log(data.date5);
-        
-        // const dates = [data.date1, data.date2, data.date3, data.date4, data.date5];
-        var datesempty = ['','','','',''];
-        console.log("temperatures");
-        console.log(temperatures);
-        // console.log("dates");
-        // console.log(dates);
-        //var ctx = document.getElementById(data.thermometerid);
-        new Chart(document.getElementById(data.thermometerid), {
+        var ctx = document.getElementById(data.thermometerid);
+        console.log("data.temps");
+        console.log(data.temps)
+        console.log("data.dates");
+        console.log(data.dates)
+        new Chart(ctx, {
             type: 'line',
 
             data: {
-                labels: datesempty,
+                labels: data-dates,
 
                 datasets: [{
 
                     label: 'Degrees',
 
-                    data: temperatures,
+                    data: data-temps,
                     borderWidth: 3
 
                 }]
@@ -238,7 +216,9 @@ data-temp5 = {{therm.temps.5}}
 
                     y: {
 
-                        display: false
+                        display: false,
+
+                        beginAtZero: true
 
                     }
 
